@@ -5,6 +5,7 @@ import icon from "./img/icon.png";
 import cover from "./img/cover.jpg";
 
 function App() {
+  // test commit
   return (
     <div className="container">
       <div className="wrapper">
