@@ -2,23 +2,24 @@
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/Montserrat/Montserrat-Regular.woff") format("woff"), url("./fonts/Montserrat/Montserrat-Regular.woff2") format("woff2");
+  src: url("./fonts/Montserrat/Montserrat-Regular.woff") format("woff"),
+    url("./fonts/Montserrat/Montserrat-Regular.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 600;
-  src: url("./fonts/Montserrat/Montserrat-SemiBold.woff") format("woff"), url("./fonts/Montserrat/Montserrat-SemiBold.woff2") format("woff2");
+  src: url("./fonts/Montserrat/Montserrat-SemiBold.woff") format("woff"),
+    url("./fonts/Montserrat/Montserrat-SemiBold.woff2") format("woff2");
 }
-
 
 button:focus {
   outline: none;
 }
 
 body {
-  font-family: "Montserrat";
+  font-family: "Montserrat", sans-serif;
 }
 
 p,
@@ -40,7 +41,7 @@ h5 {
 .wrapper {
   display: flex;
   justify-content: space-between;
-  height: 100%;
+  min-height: 100vh;
 }
 
 .sidebar {
@@ -113,7 +114,7 @@ h5 {
   &__link {
     color: #fff;
     text-decoration: none;
-    font-family: "Montserrat";
+    font-family: "Montserrat", sans-serif;
     font-weight: 400;
     opacity: 0.6;
   }
@@ -131,13 +132,13 @@ h5 {
       &__name {
         font-size: 25px;
         color: #fff;
-        font-family: "Montserrat";
+        font-family: "Montserrat", sans-serif;
         font-weight: 600;
       }
 
       &__descr {
         color: #fff;
-        font-family: "Montserrat";
+        font-family: "Montserrat", sans-serif;
         font-weight: 400;
         opacity: 0.7;
         margin-top: 5px;
@@ -150,6 +151,10 @@ h5 {
     justify-content: space-between;
     list-style-type: none;
     margin-top: 25px;
+  }
+
+  &__wrap {
+    padding: 10px;
   }
 
   &__item {
@@ -173,6 +178,9 @@ h5 {
     color: #fff;
     font-family: "Montserrat";
     font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   &__descr {
@@ -187,5 +195,7 @@ h5 {
 
 .cover__img {
   width: 100%;
+  -webkit-box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.2);
 }
-
