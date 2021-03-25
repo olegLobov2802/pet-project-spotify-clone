@@ -1,20 +1,18 @@
 import React from "react";
-import { PlaylistContainer } from "./Playlist";
 
-export const Category = () => {
+export const Category = ({ category }) => {
   return (
-    <ul className="playlist">
-      <li className="playlist__category">
-        <div className="category">
-          <div className="category__name">Топ новинок 2020</div>
-          <div className="category__descr">
-            Здесь найдется музыка для любого настроения.
-          </div>
-        </div>
-        <ul className="playlist__items">
-          <PlaylistContainer />
-        </ul>
-      </li>
-    </ul>
+    <>
+        {category.map((item) => (
+            <div className="category__wrap">
+              <div className="category__item">
+                <div className="category__cover">
+                  <img className="cover__img" src={item.icons[0].url} alt="" />
+                </div>
+                <div className="category__name">{item.name}</div>
+              </div>
+            </div>
+        ))}
+      </>
   );
 };

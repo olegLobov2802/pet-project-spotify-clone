@@ -27,4 +27,20 @@ export const contentListAPI = {
       }).then((response) => response.data);
     });
   },
+
+  getPlaylistCategory(id) {
+    return getToken().then((access_token) => {
+      return instance(`browse/categories/${id}/playlists`, {
+        headers: { Authorization: "Bearer " + access_token },
+      }).then((response) => response.data.playlists.items)
+    })
+  },
+
+  getPlaylistNewReleas() {
+    return getToken().then((access_token) => {
+      return instance(`browse/new-releases`, {
+        headers: { Authorization: "Bearer " + access_token },
+      }).then((response) => response.data.albums.items)
+    })
+  }
 };

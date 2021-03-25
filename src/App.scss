@@ -63,6 +63,11 @@ h5 {
   flex-basis: 85%;
   background-color: #181818;
   padding: 25px;
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 .sidebar__logo {
@@ -123,35 +128,48 @@ h5 {
 .playlist {
   list-style-type: none;
 
-  &__category {
-    display: flex;
-    flex-direction: column;
-    margin-top: 35px;
+  &__wrap {
+    padding: 10px;
+  }
 
-    .category {
-      &__name {
-        font-size: 25px;
-        color: #fff;
-        font-family: "Montserrat", sans-serif;
-        font-weight: 600;
-      }
+  &__item {
+    width: 200px;
+    padding: 15px;
+    background-color: #222;
+    border-radius: 5px;
+    transition: all 0.5s;
+    -webkit-box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.2);
 
-      &__descr {
-        color: #fff;
-        font-family: "Montserrat", sans-serif;
-        font-weight: 400;
-        opacity: 0.7;
-        margin-top: 5px;
-      }
+    &:hover {
+      background-color: #333;
+      cursor: pointer;
     }
   }
 
-  &__items {
-    display: flex;
-    justify-content: space-between;
-    list-style-type: none;
-    margin-top: 25px;
+  &__name {
+    margin-top: 10px;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
+
+  &__descr {
+    margin-top: 10px;
+    color: #fff;
+    opacity: 0.7;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.category {
+  list-style-type: none;
 
   &__wrap {
     padding: 10px;
@@ -176,21 +194,13 @@ h5 {
   &__name {
     margin-top: 10px;
     color: #fff;
-    font-family: "Montserrat";
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
-  &__descr {
-    margin-top: 10px;
-    color: #fff;
-    opacity: 0.7;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
 }
 
 .cover__img {

@@ -1,6 +1,6 @@
 import {NavLink} from "react-router-dom";
-import logo from "../img/logo.png";
-import icon from "../img/icon.png";
+import logo from "../../img/logo.png";
+import icon from "../../img/icon.png";
 import React from "react";
 
 export const Navbar = () => {
@@ -18,6 +18,12 @@ export const Navbar = () => {
               <img src={icon} alt="#" className="menu__icon" />
               <NavLink to={"/home"} href="#" className="menu__link">
                 Главная
+              </NavLink>
+            </li>
+            <li className="menu__item active">
+              <img src={icon} alt="#" className="menu__icon" />
+              <NavLink to={"/Category"} href="#" className="menu__link">
+                Категории
               </NavLink>
             </li>
             <li className="menu__item">
