@@ -1,8 +1,9 @@
+import { contentListAPI } from "../api/api";
+
 const SET_CATEGORY = "SET_CATEGORY";
 
 let initialState = {
   category: [],
-  token: null,
 };
 
 export let categoryReducer = (state = initialState, action) => {
@@ -18,8 +19,15 @@ export let categoryReducer = (state = initialState, action) => {
   }
 };
 
-export const setCategory = (category, token) => ({
+const setCategory = (category) => ({
   type: SET_CATEGORY,
   category,
-  token,
 });
+
+export const getCategory = () => {
+  return (dispatch) => {
+    contentListAPI.getCategory().then((data) => {
+      dispatch(setCategory(data.categories.items));
+    });
+  };
+};

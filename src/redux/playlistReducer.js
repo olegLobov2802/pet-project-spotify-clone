@@ -1,22 +1,33 @@
-const SET_NEW_ALBUMS = "SET_NEW_ALBUMS";
+import {contentListAPI} from "../api/api";
+
+const SET_PLAYLIST = "SET_PLAYLIST";
 
 let initialState = {
   playlist: [],
 };
 
-export let plalistReducer = (state = initialState, action) => {
+export let playlistReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_NEW_ALBUMS:
+    case SET_PLAYLIST:
       return {
         ...state,
-        playlist: [...action.albums],
+        playlist: [...action.playlist],
       };
     default:
       return state;
   }
 };
 
-export const setNewPlaylist = (albums) => ({
-  type: SET_NEW_ALBUMS,
-  albums,
+export const setPlaylist = (playlist) => ({
+  type: SET_PLAYLIST,
+  playlist,
 });
+
+// export const getPlaylist = (token, id) => {
+//   return (dispatch) => {
+//     contentListAPI.getPlaylist(token, id).then(response => {
+//       // dispatch(setPlaylist(response))
+//       console.log(response)
+//     })
+//   }
+// }
