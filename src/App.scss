@@ -64,9 +64,12 @@ h5 {
   background-color: #181818;
   padding: 25px;
 
+
+
   &__wrapper {
-    display: flex;
-    flex-wrap: wrap;
+    //display: flex;
+    //flex-wrap: wrap;
+    //justify-content: center;
   }
 }
 
@@ -130,6 +133,9 @@ h5 {
 
   &__wrap {
     padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   &__item {
@@ -141,6 +147,7 @@ h5 {
     -webkit-box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.2);
+    margin: 10px;
 
     &:hover {
       background-color: #333;
@@ -173,6 +180,12 @@ h5 {
 
   &__wrap {
     padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    a {
+      padding: 10px;
+    }
   }
 
   &__item {
@@ -200,7 +213,6 @@ h5 {
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-
 }
 
 .cover__img {
@@ -208,4 +220,18 @@ h5 {
   -webkit-box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.2);
   box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.2);
+}
+
+.NewReleases {
+  ////margin: 0 auto;
+  //&__wrap {
+  //  display: flex;
+  //  flex-wrap: wrap;
+  //  justify-content: center;
+  //}
+  &__title {
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
 }

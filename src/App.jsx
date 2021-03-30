@@ -5,26 +5,19 @@ import { Navbar } from "./components/Navbar/Navbar";
 import { Search } from "./components/Search/Search";
 import { MyLibrary } from "./components/My-library/MyLibrary";
 import { connect } from "react-redux";
-import { getCategory } from "./redux/categoryReducer";
-import { Playlist } from "./components/Content/Playlist";
-import { Category } from "./components/Content/Category";
 import {
-  getPlaylistCategory, getPlaylistNewReleas
-} from "./redux/playlistReducer";
+  getCategory,
+  getPlaylistCategory,
+  getPlaylistNewReleas,
+} from "./redux/categoryReducer";
+import { ContentList } from "./components/Content/ContentList";
+import { Category } from "./components/Content/Category";
+import { PlaylistCategory } from "./components/Content/PlaylistCategory";
 
 class App extends React.Component {
   componentDidMount() {
     this.props.getCategory();
-
-  }
-
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if (prevProps.category !== this.props.category) {
-      // this.props.category.map((item) => {
-      //   this.props.getPlaylistCategory(item.id);
-      // });
-      this.props.getPlaylistNewReleas()
-    }
+    this.props.getPlaylistNewReleas();
   }
 
   render() {
@@ -37,14 +30,26 @@ class App extends React.Component {
               <Switch>
                 <Route
                   path="/home"
-                  render={() => <Playlist playlist={this.props.playlist} />}
+                  render={() => (
+                    <ContentList
+                      playlistNewReleases={this.props.playlistNewReleases}
+                      category={this.props.category}
+                      getPlaylistCategory={this.props.getPlaylistCategory}
+                    />
+                  )}
                 />
                 <Route
                   path="/Category"
-                  render={() => <Category category={this.props.category} />}
+                  render={() => (
+                    <Category
+                      category={this.props.category}
+                      getPlaylistCategory={this.props.getPlaylistCategory}
+                    />
+                  )}
                 />
                 <Route path="/search" render={() => <Search />} />
                 <Route path="/MyLibrary" render={() => <MyLibrary />} />
+                <Route path="/playlist" render={() => <PlaylistCategory playlist={this.props.playlist} />} />
               </Switch>
             </div>
           </div>
@@ -57,13 +62,16 @@ class App extends React.Component {
 const mapStateToProps = (state) => {
   return {
     category: state.categoryPage.category,
-    playlist: state.playlistPage.playlist,
-    playlistsCategory: state.playlistPage.playlistsCategory,
+    playlist: state.categoryPage.playlist,
+    playlistNewReleases: state.categoryPage.playlistNewReleases,
+    playlistsCategory: state.categoryPage.playlistsCategory,
+    categoryId: state.categoryPage.categoryId,
+    playlistTest: state.categoryPage.playlistTest,
   };
 };
 
 export const AppContainer = connect(mapStateToProps, {
   getCategory,
   getPlaylistCategory,
-  getPlaylistNewReleas
+  getPlaylistNewReleas,
 })(App);
