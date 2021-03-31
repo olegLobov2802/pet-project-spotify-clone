@@ -9,10 +9,13 @@ import {
   getCategory,
   getPlaylistCategory,
   getPlaylistNewReleas,
+  getTrack,
+  getTrackList,
 } from "./redux/categoryReducer";
 import { ContentList } from "./components/Content/ContentList";
 import { Category } from "./components/Content/Category";
 import { PlaylistCategory } from "./components/Content/PlaylistCategory";
+import { TrackList } from "./components/Content/TrackList";
 
 class App extends React.Component {
   componentDidMount() {
@@ -49,7 +52,24 @@ class App extends React.Component {
                 />
                 <Route path="/search" render={() => <Search />} />
                 <Route path="/MyLibrary" render={() => <MyLibrary />} />
-                <Route path="/playlist" render={() => <PlaylistCategory playlist={this.props.playlist} />} />
+                <Route
+                  path="/playlist"
+                  render={() => (
+                    <PlaylistCategory
+                      playlist={this.props.playlist}
+                      getTrackList={this.props.getTrackList}
+                    />
+                  )}
+                />
+                <Route
+                  path="/track"
+                  render={() => (
+                    <TrackList
+                      getTrack={this.props.getTrack}
+                      trackList={this.props.trackList}
+                    />
+                  )}
+                />
               </Switch>
             </div>
           </div>
@@ -67,6 +87,7 @@ const mapStateToProps = (state) => {
     playlistsCategory: state.categoryPage.playlistsCategory,
     categoryId: state.categoryPage.categoryId,
     playlistTest: state.categoryPage.playlistTest,
+    trackList: state.categoryPage.trackList,
   };
 };
 
@@ -74,4 +95,6 @@ export const AppContainer = connect(mapStateToProps, {
   getCategory,
   getPlaylistCategory,
   getPlaylistNewReleas,
+  getTrackList,
+  getTrack,
 })(App);

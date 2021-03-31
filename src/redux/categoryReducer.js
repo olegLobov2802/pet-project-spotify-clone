@@ -1,15 +1,18 @@
-import { contentListAPI } from "../api/api";
+import {autorize, contentListAPI} from "../api/api";
 
 const SET_CATEGORY = "SET_CATEGORY";
 const SET_CATEGORY_ID = "SET_CATEGORY_ID";
 const SET_PLAYLIST = "SET_PLAYLIST";
 const SET_PLAYLIST_NEW_RELEASES = "SET_PLAYLIST_NEW_RELEASES";
+const SET_TRACK = "SET_TRACK";
 
 let initialState = {
   category: [],
   categoryId: [],
   playlist: [],
   playlistNewReleases: [],
+  trackList: [],
+  track: [],
 };
 
 export let categoryReducer = (state = initialState, action) => {
@@ -22,7 +25,7 @@ export let categoryReducer = (state = initialState, action) => {
     case SET_CATEGORY_ID:
       return {
         ...state,
-        categoryId: [...state.categoryId, action.categoryId],
+        categoryId: [action.categoryId],
       };
     case SET_PLAYLIST:
       return {
@@ -32,7 +35,12 @@ export let categoryReducer = (state = initialState, action) => {
     case SET_PLAYLIST_NEW_RELEASES:
       return {
         ...state,
-        playlistNewReleases: [...state.playlistNewReleases, ...action.playlist],
+        playlistNewReleases: [...action.playlist],
+      };
+    case SET_TRACK:
+      return {
+        ...state,
+        trackList: [...action.tracks],
       };
     default:
       return state;
@@ -56,8 +64,13 @@ const setPlaylistNewReleases = (playlist) => ({
 
 const setPlaylist = (playlist) => ({
   type: SET_PLAYLIST,
-  playlist
-})
+  playlist,
+});
+
+const setTracks = (tracks) => ({
+  type: SET_TRACK,
+  tracks,
+});
 
 export const getCategory = () => {
   return (dispatch) => {
@@ -82,7 +95,24 @@ export const getPlaylistCategory = (id) => {
   return (dispatch) => {
     contentListAPI.getPlaylistCategory(id).then((response) => {
       dispatch(setPlaylist(response));
-      console.log(response)
+      console.log(response);
+    });
+  };
+};
+
+export const getTrackList = (id) => {
+  return (dispatch) => {
+    contentListAPI.getTrackList(id).then((items) => {
+      dispatch(setTracks(items));
+      console.log(items);
+    });
+  };
+};
+
+export const getTrack = (id) => {
+  return (dispatch) => {
+    contentListAPI.getTrack(id).then((response) => {
+      // dispatch(setTracks(items));
     });
   };
 };
