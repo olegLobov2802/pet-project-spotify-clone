@@ -1,23 +1,42 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import { getCategory, setGenreId } from "../../redux/categoryReducer";
 
-export const Category = ({ category, getPlaylistCategory }) => {
-  return (
-    <div className="category__wrap">
-      {category.map((item) => (
-        <NavLink
-          to={"/playlist"}
-          key={item.id}
-          onClick={() => getPlaylistCategory(item.id)}
-        >
-          <div className="category__item">
-            <div className="category__cover">
-              <img className="cover__img" src={item.icons[0].url} alt="" />
-            </div>
-            <div className="category__name">{item.name}</div>
-          </div>
-        </NavLink>
-      ))}
-    </div>
-  );
+class Category extends React.Component {
+  componentDidMount() {
+    this.props.getCategory();
+  }
+
+  render() {
+    return (
+      <div className="cover">
+        <div className="cover__wrapper">
+          {this.props.category.map((item) => (
+            <NavLink
+              key={item.id}
+              to={"/genre"}
+              onClick={() => this.props.setGenreId(item.id)}
+              className="cover__link"
+            >
+              <div className="cover__item" >
+                <div className="cover__img">
+                  <img src={item.icons[0].url} alt="#" />
+                </div>
+                <div className="cover__name">{item.name}</div>
+              </div>
+            </NavLink>
+          ))}
+        </div>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    category: state.contentPage.category,
+  };
 };
+
+export default connect(mapStateToProps, { getCategory, setGenreId })(Category);

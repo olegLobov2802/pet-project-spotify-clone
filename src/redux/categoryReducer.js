@@ -1,18 +1,19 @@
-import {autorize, contentListAPI} from "../api/api";
+import { contentListAPI } from "../api/api";
 
 const SET_CATEGORY = "SET_CATEGORY";
-const SET_CATEGORY_ID = "SET_CATEGORY_ID";
 const SET_PLAYLIST = "SET_PLAYLIST";
+const SET_GENRE = "SET_GENRE";
 const SET_PLAYLIST_NEW_RELEASES = "SET_PLAYLIST_NEW_RELEASES";
-const SET_TRACK = "SET_TRACK";
+const SET_GENRE_ID = "SET_GENRE_ID";
+const SET_PLAYLIST_ID = "SET_PLAYLIST_ID";
 
 let initialState = {
   category: [],
-  categoryId: [],
   playlist: [],
+  genre: [],
   playlistNewReleases: [],
-  trackList: [],
-  track: [],
+  genreId: null,
+  playlistId: null,
 };
 
 export let categoryReducer = (state = initialState, action) => {
@@ -22,39 +23,49 @@ export let categoryReducer = (state = initialState, action) => {
         ...state,
         category: [...action.category],
       };
-    case SET_CATEGORY_ID:
-      return {
-        ...state,
-        categoryId: [action.categoryId],
-      };
     case SET_PLAYLIST:
       return {
         ...state,
         playlist: [...action.playlist],
+      };
+    case SET_GENRE:
+      return {
+        ...state,
+        genre: [...action.genre],
+      };
+    case SET_GENRE_ID:
+      return {
+        ...state,
+        genreId: action.id,
+      };
+    case SET_PLAYLIST_ID:
+      return {
+        ...state,
+        playlistId: action.id,
       };
     case SET_PLAYLIST_NEW_RELEASES:
       return {
         ...state,
         playlistNewReleases: [...action.playlist],
       };
-    case SET_TRACK:
-      return {
-        ...state,
-        trackList: [...action.tracks],
-      };
     default:
       return state;
   }
 };
 
+export const setGenreId = (id) => ({
+  type: SET_GENRE_ID,
+  id,
+});
+
+export const setPlaylistId = (id) => ({
+  type: SET_PLAYLIST_ID,
+  id,
+});
+
 const setCategory = (category) => ({
   type: SET_CATEGORY,
   category,
-});
-
-const setCategoryId = (categoryId) => ({
-  type: SET_CATEGORY_ID,
-  categoryId,
 });
 
 const setPlaylistNewReleases = (playlist) => ({
@@ -67,18 +78,15 @@ const setPlaylist = (playlist) => ({
   playlist,
 });
 
-const setTracks = (tracks) => ({
-  type: SET_TRACK,
-  tracks,
+const setGenre = (genre) => ({
+  type: SET_GENRE,
+  genre,
 });
 
 export const getCategory = () => {
   return (dispatch) => {
     contentListAPI.getCategory().then((data) => {
       dispatch(setCategory(data.categories.items));
-      data.categories.items.map((item) => {
-        dispatch(setCategoryId(item.id));
-      });
     });
   };
 };
@@ -91,28 +99,18 @@ export const getPlaylistNewReleas = () => {
   };
 };
 
-export const getPlaylistCategory = (id) => {
+export const getGenre = (id) => {
   return (dispatch) => {
-    contentListAPI.getPlaylistCategory(id).then((response) => {
-      dispatch(setPlaylist(response));
-      console.log(response);
+    contentListAPI.getGenre(id).then((response) => {
+      dispatch(setGenre(response));
     });
   };
 };
 
-export const getTrackList = (id) => {
+export const getPlaylist = (id) => {
   return (dispatch) => {
-    contentListAPI.getTrackList(id).then((items) => {
-      dispatch(setTracks(items));
-      console.log(items);
-    });
-  };
-};
-
-export const getTrack = (id) => {
-  return (dispatch) => {
-    contentListAPI.getTrack(id).then((response) => {
-      // dispatch(setTracks(items));
+    contentListAPI.getPlaylist(id).then((items) => {
+      dispatch(setPlaylist(items));
     });
   };
 };

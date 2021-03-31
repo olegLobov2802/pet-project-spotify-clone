@@ -5,11 +5,6 @@ const instance = axios.create({
   method: "GET",
 });
 
-const instancePut = axios.create({
-  baseURL: "https://api.spotify.com/v1/",
-  method: "PUT",
-});
-
 export const getToken = () => {
   const clientId = "6dd24a9303114d3d84ecb1b03f3f5cf5";
   const clientSecret = "3dac0676a0a34e29a7e1396dfd0d4179";
@@ -18,12 +13,10 @@ export const getToken = () => {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
       Authorization: "Basic " + btoa(clientId + ":" + clientSecret),
-      // scope: "user-read-private user-read-email",
     },
     data: "grant_type=client_credentials",
     method: "POST",
   }).then((tokenResponse) => {
-    console.log(tokenResponse);
     return tokenResponse.data.access_token;
   });
 };
@@ -37,7 +30,7 @@ export const contentListAPI = {
     });
   },
 
-  getPlaylistCategory(id) {
+  getGenre(id) {
     return getToken().then((access_token) => {
       return instance(`browse/categories/${id}/playlists`, {
         headers: { Authorization: "Bearer " + access_token },
@@ -55,7 +48,7 @@ export const contentListAPI = {
     });
   },
 
-  getTrackList(id) {
+  getPlaylist(id) {
     return getToken().then((access_token) => {
       return instance(`playlists/${id}/tracks`, {
         headers: { Authorization: "Bearer " + access_token },
@@ -68,17 +61,6 @@ export const contentListAPI = {
     return getToken().then((access_token) => {
       return instance(`tracks/${id}`, {
         headers: { Authorization: "Bearer " + access_token },
-      }).then((response) => {
-        return response;
-      });
-    });
-  },
-  play() {
-    return getToken().then((access_token) => {
-      return instancePut(`me/player/play`, {
-        headers: {
-          Authorization: "Bearer " + access_token,
-        },
       }).then((response) => {
         return response;
       });

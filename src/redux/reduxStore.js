@@ -4,7 +4,7 @@ import thunk from "redux-thunk";
 import { categoryReducer } from "./categoryReducer";
 
 let reducers = combineReducers({
-  categoryPage: categoryReducer,
+  contentPage: categoryReducer,
 });
 
 export const store = createStore(
