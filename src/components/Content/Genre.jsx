@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import { getGenre, setPlaylistId } from "../../redux/categoryReducer";
+import {getGenre, setGenreItem, setPlaylistId} from "../../redux/categoryReducer";
 
 class Genre extends React.Component {
   componentDidMount() {
@@ -16,7 +16,7 @@ class Genre extends React.Component {
             <NavLink
               key={item.id}
               to="/playlist"
-              onClick={() => this.props.setPlaylistId(item.id)}
+              onClick={() => this.props.setGenreItem(item)}
               className="cover__link"
             >
               <div className="cover__item" key={index}>
@@ -41,4 +41,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { getGenre, setPlaylistId })(Genre);
+export default connect(mapStateToProps, { getGenre, setPlaylistId, setGenreItem })(Genre);

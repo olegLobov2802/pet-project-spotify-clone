@@ -6,6 +6,7 @@ const SET_GENRE = "SET_GENRE";
 const SET_PLAYLIST_NEW_RELEASES = "SET_PLAYLIST_NEW_RELEASES";
 const SET_GENRE_ID = "SET_GENRE_ID";
 const SET_PLAYLIST_ID = "SET_PLAYLIST_ID";
+const SET_GENRE_ITEM = "SET_GENRE_ITEM";
 
 let initialState = {
   category: [],
@@ -13,7 +14,9 @@ let initialState = {
   genre: [],
   playlistNewReleases: [],
   genreId: null,
+  playlistCover: null,
   playlistId: null,
+  genreItem: {}
 };
 
 export let categoryReducer = (state = initialState, action) => {
@@ -42,11 +45,17 @@ export let categoryReducer = (state = initialState, action) => {
       return {
         ...state,
         playlistId: action.id,
+        playlistCover: action.cover,
       };
     case SET_PLAYLIST_NEW_RELEASES:
       return {
         ...state,
         playlistNewReleases: [...action.playlist],
+      };
+    case SET_GENRE_ITEM:
+      return {
+        ...state,
+        genreItem: {...action.item},
       };
     default:
       return state;
@@ -58,9 +67,15 @@ export const setGenreId = (id) => ({
   id,
 });
 
-export const setPlaylistId = (id) => ({
+export const setGenreItem = (item) => ({
+  type: SET_GENRE_ITEM,
+  item,
+});
+
+export const setPlaylistId = (id, cover) => ({
   type: SET_PLAYLIST_ID,
   id,
+  cover,
 });
 
 const setCategory = (category) => ({
