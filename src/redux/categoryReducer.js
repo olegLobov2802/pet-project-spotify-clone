@@ -1,12 +1,12 @@
-import { contentListAPI } from "../api/api";
+import { contentListAPI } from '../api/api';
 
-const SET_CATEGORY = "SET_CATEGORY";
-const SET_PLAYLIST = "SET_PLAYLIST";
-const SET_GENRE = "SET_GENRE";
-const SET_PLAYLIST_NEW_RELEASES = "SET_PLAYLIST_NEW_RELEASES";
-const SET_GENRE_ID = "SET_GENRE_ID";
-const SET_PLAYLIST_ID = "SET_PLAYLIST_ID";
-const SET_GENRE_ITEM = "SET_GENRE_ITEM";
+const SET_CATEGORY = 'SET_CATEGORY';
+const SET_PLAYLIST = 'SET_PLAYLIST';
+const SET_GENRE = 'SET_GENRE';
+const SET_PLAYLIST_NEW_RELEASES = 'SET_PLAYLIST_NEW_RELEASES';
+const SET_GENRE_ID = 'SET_GENRE_ID';
+const SET_PLAYLIST_ID = 'SET_PLAYLIST_ID';
+const SET_GENRE_ITEM = 'SET_GENRE_ITEM';
 
 let initialState = {
   category: [],
@@ -16,7 +16,7 @@ let initialState = {
   genreId: null,
   playlistCover: null,
   playlistId: null,
-  genreItem: {}
+  genreItem: {},
 };
 
 export let categoryReducer = (state = initialState, action) => {
@@ -55,7 +55,7 @@ export let categoryReducer = (state = initialState, action) => {
     case SET_GENRE_ITEM:
       return {
         ...state,
-        genreItem: {...action.item},
+        genreItem: { ...action.item },
       };
     default:
       return state;

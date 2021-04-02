@@ -1,7 +1,7 @@
-import React from "react";
-import { NewReleases } from "./NewReleases";
-import { connect } from "react-redux";
-import { getPlaylistNewReleas } from "../../redux/categoryReducer";
+import React from 'react';
+import { NewReleases } from './NewReleases';
+import { connect } from 'react-redux';
+import { getPlaylistNewReleas } from '../../redux/categoryReducer';
 
 class HomePage extends React.Component {
   componentDidMount() {
@@ -16,7 +16,7 @@ class HomePage extends React.Component {
     );
   }
 }
-  
+
 const mapStateToProps = (state) => {
   return {
     playlistNewReleases: state.contentPage.playlistNewReleases,

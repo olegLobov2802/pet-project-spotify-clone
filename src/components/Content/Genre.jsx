@@ -1,7 +1,7 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import { connect } from "react-redux";
-import {getGenre, setGenreItem, setPlaylistId} from "../../redux/categoryReducer";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getGenre, setGenreItem, setPlaylistId } from '../../redux/categoryReducer';
 
 class Genre extends React.Component {
   componentDidMount() {
@@ -10,21 +10,20 @@ class Genre extends React.Component {
 
   render() {
     return (
-      <div className="cover">
-        <div className="cover__wrapper">
+      <div className='cover'>
+        <div className='cover__wrapper'>
           {this.props.genre.map((item, index) => (
             <NavLink
               key={item.id}
-              to="/playlist"
+              to='/playlist'
               onClick={() => this.props.setGenreItem(item)}
-              className="cover__link"
-            >
-              <div className="cover__item" key={index}>
-                <div className="cover__img">
-                  <img src={item.images[0].url} alt="#" />
+              className='cover__link'>
+              <div className='cover__item' key={index}>
+                <div className='cover__img'>
+                  <img src={item.images[0].url} alt='#' />
                 </div>
-                <div className="cover__name">{item.name}</div>
-                <div className="cover__descr">{item.description}</div>
+                <div className='cover__name'>{item.name}</div>
+                <div className='cover__descr'>{item.description}</div>
               </div>
             </NavLink>
           ))}

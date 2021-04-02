@@ -13,7 +13,11 @@ class Playlist extends React.Component {
 
   dataParse = (data) => {
     // let date = new Date(data);
-    return new Date(data).toLocaleString('ru-RU', {year: 'numeric', month: 'long', day: 'numeric'});
+    return new Date(data).toLocaleString('ru-RU', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
   };
 
   render() {
