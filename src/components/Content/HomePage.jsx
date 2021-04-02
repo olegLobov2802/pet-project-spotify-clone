@@ -16,7 +16,7 @@ class HomePage extends React.Component {
     );
   }
 }
-
+  
 const mapStateToProps = (state) => {
   return {
     playlistNewReleases: state.contentPage.playlistNewReleases,
