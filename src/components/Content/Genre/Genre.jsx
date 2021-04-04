@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getGenre, setGenreItem, setPlaylistId } from '../../redux/categoryReducer';
-import Preloader from '../Preloader/Preloader';
+import { getGenre, setGenreItem } from '../../../redux/categoryReducer';
+import Preloader from '../../Preloader/Preloader';
 
 class Genre extends React.Component {
   componentDidMount() {
@@ -48,4 +48,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { getGenre, setPlaylistId, setGenreItem })(Genre);
+export default connect(mapStateToProps, { getGenre, setGenreItem })(Genre);

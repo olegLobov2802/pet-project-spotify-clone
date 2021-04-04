@@ -8,6 +8,7 @@ const SET_GENRE_ID = 'SET_GENRE_ID';
 const SET_PLAYLIST_ID = 'SET_PLAYLIST_ID';
 const SET_GENRE_ITEM = 'SET_GENRE_ITEM';
 const IS_LOADING = 'IS_LOADING';
+const SET_PLAYLIST_ALBUM = 'SET_PLAYLIST_ALBUM';
 
 let initialState = {
   category: [],
@@ -17,6 +18,7 @@ let initialState = {
   genreId: null,
   playlistCover: null,
   playlistId: null,
+  playlistAlbum: [],
   genreItem: {},
   isLoading: false,
 };
@@ -33,6 +35,11 @@ export let categoryReducer = (state = initialState, action) => {
         ...state,
         playlist: [...action.playlist],
       };
+    case SET_PLAYLIST_ALBUM:
+      return {
+        ...state,
+        playlistAlbum: [...action.playlist],
+      };
     case SET_GENRE:
       return {
         ...state,
@@ -47,7 +54,6 @@ export let categoryReducer = (state = initialState, action) => {
       return {
         ...state,
         playlistId: action.id,
-        playlistCover: action.cover,
       };
     case SET_PLAYLIST_NEW_RELEASES:
       return {
@@ -79,15 +85,14 @@ export const setGenreItem = (item) => ({
   item,
 });
 
-export const setPlaylistId = (id, cover) => ({
+export const setPlaylistId = (id) => ({
   type: SET_PLAYLIST_ID,
   id,
-  cover,
 });
 
 const checkIsLoading = (load) => ({
   type: IS_LOADING,
-  load
+  load,
 });
 
 const setCategory = (category) => ({
@@ -105,6 +110,11 @@ const setPlaylist = (playlist) => ({
   playlist,
 });
 
+const setPlaylistAlbum = (playlist) => ({
+  type: SET_PLAYLIST_ALBUM,
+  playlist,
+});
+
 const setGenre = (genre) => ({
   type: SET_GENRE,
   genre,
@@ -112,40 +122,50 @@ const setGenre = (genre) => ({
 
 export const getCategory = () => {
   return (dispatch) => {
-    dispatch(checkIsLoading(true))
+    dispatch(checkIsLoading(true));
     contentListAPI.getCategory().then((data) => {
       dispatch(setCategory(data.categories.items));
-      dispatch(checkIsLoading(false))
+      dispatch(checkIsLoading(false));
     });
   };
 };
 
 export const getPlaylistNewReleas = () => {
   return (dispatch) => {
-    dispatch(checkIsLoading(true))
+    dispatch(checkIsLoading(true));
     contentListAPI.getPlaylistNewReleas().then((items) => {
       dispatch(setPlaylistNewReleases(items));
-      dispatch(checkIsLoading(false))
+      dispatch(checkIsLoading(false));
     });
   };
 };
 
 export const getGenre = (id) => {
   return (dispatch) => {
-    dispatch(checkIsLoading(true))
+    dispatch(checkIsLoading(true));
     contentListAPI.getGenre(id).then((response) => {
       dispatch(setGenre(response));
-      dispatch(checkIsLoading(false))
+      dispatch(checkIsLoading(false));
     });
   };
 };
 
 export const getPlaylist = (id) => {
   return (dispatch) => {
-    dispatch(checkIsLoading(true))
+    dispatch(checkIsLoading(true));
     contentListAPI.getPlaylist(id).then((items) => {
       dispatch(setPlaylist(items));
-      dispatch(checkIsLoading(false))
+      dispatch(checkIsLoading(false));
+    });
+  };
+};
+
+export const getAlbumsTrack = (id) => {
+  return (dispatch) => {
+    dispatch(checkIsLoading(true));
+    contentListAPI.getAlbumsTrack(id).then((items) => {
+      dispatch(setPlaylistAlbum(items));
+      dispatch(checkIsLoading(false));
     });
   };
 };

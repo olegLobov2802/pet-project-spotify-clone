@@ -1,7 +1,7 @@
 import React from 'react';
 import { NewReleases } from './NewReleases';
 import { connect } from 'react-redux';
-import { getPlaylistNewReleas } from '../../redux/categoryReducer';
+import { getPlaylistNewReleas, setGenreItem } from '../../redux/categoryReducer';
 import Preloader from '../Preloader/Preloader';
 
 class HomePage extends React.Component {
@@ -15,7 +15,7 @@ class HomePage extends React.Component {
         {this.props.isLoading ? (
           <Preloader />
         ) : (
-          <NewReleases playlistNewReleases={this.props.playlistNewReleases} />
+          <NewReleases playlistNewReleases={this.props.playlistNewReleases} setGenreItem={this.props.setGenreItem} />
         )}
       </>
     );
@@ -29,4 +29,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { getPlaylistNewReleas })(HomePage);
+export default connect(mapStateToProps, { getPlaylistNewReleas, setGenreItem })(HomePage);

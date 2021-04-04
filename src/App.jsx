@@ -5,8 +5,9 @@ import { Navbar } from './components/Navbar/Navbar';
 import { Search } from './components/Search/Search';
 import HomePage from './components/Content/HomePage';
 import Category from './components/Content/Category';
-import Genre from './components/Content/Genre';
-import Playlist from './components/Content/Playlist';
+import Genre from './components/Content/Genre/Genre';
+import PlaylistGenre from './components/Content/Genre/PlaylistGenre';
+import PlaylistAlbums from './components/Content/Albums/PlaylistAlbums';
 
 export const App = () => {
   return (
@@ -20,7 +21,8 @@ export const App = () => {
               <Route path='/Category' render={() => <Category />} />
               <Route path='/search' render={() => <Search />} />
               <Route path='/genre' render={() => <Genre />} />
-              <Route path='/playlist' render={() => <Playlist />} />
+              <Route path='/playlist' render={() => <PlaylistGenre />} />
+              <Route path='/album' render={() => <PlaylistAlbums />} /> 
             </Switch>
           </div>
         </div>

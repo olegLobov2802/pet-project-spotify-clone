@@ -66,4 +66,13 @@ export const contentListAPI = {
       });
     });
   },
+  getAlbumsTrack(id) {
+    return getToken().then((access_token) => {
+      return instance(`albums/${id}/tracks`, {
+        headers: { Authorization: 'Bearer ' + access_token },
+      }).then((response) => {
+        return response.data.items;
+      });
+    });
+  },
 };
