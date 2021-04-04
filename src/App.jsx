@@ -22,7 +22,7 @@ export const App = () => {
               <Route path='/search' render={() => <Search />} />
               <Route path='/genre' render={() => <Genre />} />
               <Route path='/playlist' render={() => <PlaylistGenre />} />
-              <Route path='/album' render={() => <PlaylistAlbums />} /> 
+              <Route path='/album' render={() => <PlaylistAlbums />} />
             </Switch>
           </div>
         </div>
