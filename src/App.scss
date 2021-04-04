@@ -70,7 +70,16 @@ h5 {
 .content {
   flex-basis: 85%;
   background-color: #181818;
-  padding: 25px;
+
+  &__wrapper {
+    min-height: 100vh;
+    .preloader {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+  }
 }
 
 .sidebar__logo {
@@ -238,19 +247,23 @@ h5 {
     padding: 20px;
     border-bottom: 2px solid #47383a;
     color: #c29ba0;
+    align-items: center;
 
     .name {
       flex-basis: 40%;
+      padding: 10px;
     }
     .album {
       flex-basis: 30%;
+      padding: 10px;
     }
     .data {
       flex-basis: 15%;
+      padding: 10px;
     }
     .time {
-      flex-basis: 15%;
-      text-align: right;
+      margin-left: auto;
+      padding: 10px;
     }
   }
 
@@ -261,10 +274,15 @@ h5 {
     color: #d1a2a9;
     align-items: center;
 
+    &:hover {
+      background-color: #333;
+    }
+
     &__item {
       flex-basis: 40%;
       display: flex;
       align-items: center;
+      padding: 10px;
 
       .number {
       }
@@ -276,21 +294,39 @@ h5 {
       .name {
         color: #fff;
         font-size: 18px;
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
       }
 
       .artists {
+        margin-top: 4px;
         font-size: 16px;
+        color: #d1a2a9;
+        span:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
       }
     }
     &__album {
       flex-basis: 30%;
+      padding: 10px;
+      color: #d1a2a9;
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
     }
     &__data {
       flex-basis: 15%;
+      padding: 10px;
     }
     &__time {
       flex-basis: 15%;
       text-align: right;
+      padding: 10px;
     }
   }
 }

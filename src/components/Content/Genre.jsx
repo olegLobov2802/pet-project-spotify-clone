@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getGenre, setGenreItem, setPlaylistId } from '../../redux/categoryReducer';
+import Preloader from '../Preloader/Preloader';
 
 class Genre extends React.Component {
   componentDidMount() {
@@ -10,25 +11,31 @@ class Genre extends React.Component {
 
   render() {
     return (
-      <div className='cover'>
-        <div className='cover__wrapper'>
-          {this.props.genre.map((item, index) => (
-            <NavLink
-              key={item.id}
-              to='/playlist'
-              onClick={() => this.props.setGenreItem(item)}
-              className='cover__link'>
-              <div className='cover__item' key={index}>
-                <div className='cover__img'>
-                  <img src={item.images[0].url} alt='#' />
-                </div>
-                <div className='cover__name'>{item.name}</div>
-                <div className='cover__descr'>{item.description}</div>
-              </div>
-            </NavLink>
-          ))}
-        </div>
-      </div>
+      <>
+        {this.props.isLoading ? (
+          <Preloader />
+        ) : (
+          <div className='cover'>
+            <div className='cover__wrapper'>
+              {this.props.genre.map((item, index) => (
+                <NavLink
+                  key={item.id}
+                  to='/playlist'
+                  onClick={() => this.props.setGenreItem(item)}
+                  className='cover__link'>
+                  <div className='cover__item' key={index}>
+                    <div className='cover__img'>
+                      <img src={item.images[0].url} alt='#' />
+                    </div>
+                    <div className='cover__name'>{item.name}</div>
+                    <div className='cover__descr'>{item.description}</div>
+                  </div>
+                </NavLink>
+              ))}
+            </div>
+          </div>
+        )}
+      </>
     );
   }
 }
@@ -37,6 +44,7 @@ const mapStateToProps = (state) => {
   return {
     genre: state.contentPage.genre,
     genreId: state.contentPage.genreId,
+    isLoading: state.contentPage.isLoading,
   };
 };
 

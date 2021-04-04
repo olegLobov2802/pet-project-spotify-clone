@@ -7,6 +7,7 @@ const SET_PLAYLIST_NEW_RELEASES = 'SET_PLAYLIST_NEW_RELEASES';
 const SET_GENRE_ID = 'SET_GENRE_ID';
 const SET_PLAYLIST_ID = 'SET_PLAYLIST_ID';
 const SET_GENRE_ITEM = 'SET_GENRE_ITEM';
+const IS_LOADING = 'IS_LOADING';
 
 let initialState = {
   category: [],
@@ -17,6 +18,7 @@ let initialState = {
   playlistCover: null,
   playlistId: null,
   genreItem: {},
+  isLoading: false,
 };
 
 export let categoryReducer = (state = initialState, action) => {
@@ -57,6 +59,11 @@ export let categoryReducer = (state = initialState, action) => {
         ...state,
         genreItem: { ...action.item },
       };
+    case IS_LOADING:
+      return {
+        ...state,
+        isLoading: action.load,
+      };
     default:
       return state;
   }
@@ -76,6 +83,11 @@ export const setPlaylistId = (id, cover) => ({
   type: SET_PLAYLIST_ID,
   id,
   cover,
+});
+
+const checkIsLoading = (load) => ({
+  type: IS_LOADING,
+  load
 });
 
 const setCategory = (category) => ({
@@ -100,32 +112,40 @@ const setGenre = (genre) => ({
 
 export const getCategory = () => {
   return (dispatch) => {
+    dispatch(checkIsLoading(true))
     contentListAPI.getCategory().then((data) => {
       dispatch(setCategory(data.categories.items));
+      dispatch(checkIsLoading(false))
     });
   };
 };
 
 export const getPlaylistNewReleas = () => {
   return (dispatch) => {
+    dispatch(checkIsLoading(true))
     contentListAPI.getPlaylistNewReleas().then((items) => {
       dispatch(setPlaylistNewReleases(items));
+      dispatch(checkIsLoading(false))
     });
   };
 };
 
 export const getGenre = (id) => {
   return (dispatch) => {
+    dispatch(checkIsLoading(true))
     contentListAPI.getGenre(id).then((response) => {
       dispatch(setGenre(response));
+      dispatch(checkIsLoading(false))
     });
   };
 };
 
 export const getPlaylist = (id) => {
   return (dispatch) => {
+    dispatch(checkIsLoading(true))
     contentListAPI.getPlaylist(id).then((items) => {
       dispatch(setPlaylist(items));
+      dispatch(checkIsLoading(false))
     });
   };
 };
