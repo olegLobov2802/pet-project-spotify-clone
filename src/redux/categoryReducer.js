@@ -5,7 +5,7 @@ const SET_PLAYLIST = 'SET_PLAYLIST';
 const SET_GENRE = 'SET_GENRE';
 const SET_PLAYLIST_NEW_RELEASES = 'SET_PLAYLIST_NEW_RELEASES';
 const SET_GENRE_ID = 'SET_GENRE_ID';
-const SET_PLAYLIST_ID = 'SET_PLAYLIST_ID';
+const SET_PLAYLIST_INFO = 'SET_PLAYLIST_INFO';
 const SET_GENRE_ITEM = 'SET_GENRE_ITEM';
 const IS_LOADING = 'IS_LOADING';
 const SET_PLAYLIST_ALBUM = 'SET_PLAYLIST_ALBUM';
@@ -19,8 +19,11 @@ let initialState = {
   playlistCover: null,
   playlistId: null,
   playlistAlbum: [],
+  playlistAlbumImg: null,
   genreItem: {},
   isLoading: false,
+  albumName: null,
+  albumArtists: [],
 };
 
 export let categoryReducer = (state = initialState, action) => {
@@ -50,10 +53,13 @@ export let categoryReducer = (state = initialState, action) => {
         ...state,
         genreId: action.id,
       };
-    case SET_PLAYLIST_ID:
+    case SET_PLAYLIST_INFO:
       return {
         ...state,
         playlistId: action.id,
+        playlistAlbumImg: action.img,
+        albumName: action.albumName,
+        albumArtists: [...action.artists],
       };
     case SET_PLAYLIST_NEW_RELEASES:
       return {
@@ -85,9 +91,12 @@ export const setGenreItem = (item) => ({
   item,
 });
 
-export const setPlaylistId = (id) => ({
-  type: SET_PLAYLIST_ID,
+export const setPlaylistInfo = (id, img, albumName, artists) => ({
+  type: SET_PLAYLIST_INFO,
   id,
+  img,
+  albumName,
+  artists,
 });
 
 const checkIsLoading = (load) => ({

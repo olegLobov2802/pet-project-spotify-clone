@@ -18,11 +18,9 @@ const mapStateToProps = (state) => {
   return {
     playlist: state.contentPage.playlistAlbum,
     albumId: state.contentPage.playlistId,
-    // playlistId: state.contentPage.genreItem.id,
-    // cover: state.contentPage.genreItem.images[0].url,
-    // playlistName: state.contentPage.genreItem.name,
-    // playlistDesc: state.contentPage.genreItem.description,
-    // isLoading: state.contentPage.isLoading,
+    cover: state.contentPage.playlistAlbumImg,
+    albumName: state.contentPage.albumName,
+    artists: state.contentPage.albumArtists,
   };
 };
 

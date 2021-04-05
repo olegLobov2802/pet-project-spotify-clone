@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getPlaylist } from '../../../redux/categoryReducer';
 import Preloader from '../../Preloader/Preloader';
 import { Playlist } from './Playlist';
-import { setPlaylistId } from '../../../redux/categoryReducer';
+import { setPlaylistInfo } from '../../../redux/categoryReducer';
 
 class PlaylistGenre extends React.Component {
   componentDidMount() {
@@ -11,15 +11,7 @@ class PlaylistGenre extends React.Component {
   }
 
   render() {
-    return (
-      <>
-        {this.props.isLoading ? (
-          <Preloader />
-        ) : (
-          <Playlist {...this.props} />
-        )}
-      </>
-    );
+    return <>{this.props.isLoading ? <Preloader /> : <Playlist {...this.props} />}</>;
   }
 }
 
@@ -34,4 +26,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { getPlaylist, setPlaylistId })(PlaylistGenre);
+export default connect(mapStateToProps, { getPlaylist, setPlaylistInfo })(PlaylistGenre);
