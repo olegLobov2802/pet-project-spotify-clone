@@ -21,6 +21,7 @@ const mapStateToProps = (state) => {
     cover: state.contentPage.playlistAlbumImg,
     albumName: state.contentPage.albumName,
     artists: state.contentPage.albumArtists,
+    isLoading: state.contentPage.isLoading
   };
 };
 

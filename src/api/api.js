@@ -40,7 +40,7 @@ export const contentListAPI = {
 
   getPlaylistNewReleas() {
     return getToken().then((access_token) => {
-      return instance(`browse/new-releases?limit=7`, {
+      return instance(`browse/new-releases?limit=6`, {
         headers: { Authorization: 'Bearer ' + access_token },
       }).then((response) => {
         return response.data.albums.items;
@@ -72,6 +72,15 @@ export const contentListAPI = {
         headers: { Authorization: 'Bearer ' + access_token },
       }).then((response) => {
         return response.data.items;
+      });
+    });
+  },
+  getAlbums(id) {
+    return getToken().then((access_token) => {
+      return instance(`albums/${id}`, {
+        headers: { Authorization: 'Bearer ' + access_token },
+      }).then((response) => {
+        return response;
       });
     });
   },

@@ -178,3 +178,14 @@ export const getAlbumsTrack = (id) => {
     });
   };
 };
+
+// TODO
+export const getAlbums = (id) => {
+  return (dispatch) => {
+    dispatch(checkIsLoading(true));
+    contentListAPI.getAlbums(id).then((response) => {
+      console.log(response);
+      dispatch(checkIsLoading(false));
+    });
+  };
+};

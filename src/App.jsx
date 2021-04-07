@@ -4,10 +4,11 @@ import { Route, Switch } from 'react-router-dom';
 import { Navbar } from './components/Navbar/Navbar';
 import { Search } from './components/Search/Search';
 import HomePage from './components/Content/HomePage';
-import Category from './components/Content/Category';
-import Genre from './components/Content/Genre/Genre';
+import CategoryContainer from './components/Content/Category/CategoryContainer';
+import GenreContainer from './components/Content/Genre/GenreContainer';
 import PlaylistGenre from './components/Content/Genre/PlaylistGenre';
 import PlaylistAlbums from './components/Content/Albums/PlaylistAlbums';
+import { Artist } from './components/Content/Artist/Artist';
 
 export const App = () => {
   return (
@@ -18,11 +19,12 @@ export const App = () => {
           <div className='content__wrapper'>
             <Switch>
               <Route exact path='/' render={() => <HomePage />} />
-              <Route path='/Category' render={() => <Category />} />
-              <Route path='/search' render={() => <Search />} />
-              <Route path='/genre' render={() => <Genre />} />
+              <Route path='/Category' render={() => <CategoryContainer />} />
+              <Route path='/genre' render={() => <GenreContainer />} />
               <Route path='/playlist' render={() => <PlaylistGenre />} />
-              <Route path='/album' render={() => <PlaylistAlbums />} /> 
+              <Route path='/album' render={() => <PlaylistAlbums />} />
+              <Route path='/artist' render={() => <Artist />} />
+              <Route path='/search' render={() => <Search />} />
             </Switch>
           </div>
         </div>
