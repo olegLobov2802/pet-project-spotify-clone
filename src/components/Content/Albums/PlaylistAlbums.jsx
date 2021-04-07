@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getAlbumsTrack } from '../../../redux/categoryReducer';
+import { getAlbumsTrack } from '../../../redux/albumsReducer';
 import Preloader from '../../Preloader/Preloader';
 import { Playlist } from './Playlist';
 
@@ -16,12 +16,12 @@ class PlaylistAlbums extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    playlist: state.contentPage.playlistAlbum,
-    albumId: state.contentPage.playlistId,
-    cover: state.contentPage.playlistAlbumImg,
-    albumName: state.contentPage.albumName,
-    artists: state.contentPage.albumArtists,
-    isLoading: state.contentPage.isLoading
+    playlist: state.albumsPage.playlistAlbum,
+    albumId: state.albumsPage.playlistId,
+    cover: state.albumsPage.playlistAlbumImg,
+    albumName: state.albumsPage.albumName,
+    artists: state.albumsPage.albumArtists,
+    isLoading: state.albumsPage.isLoading
   };
 };
 

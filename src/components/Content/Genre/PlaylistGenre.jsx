@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getPlaylist } from '../../../redux/categoryReducer';
+import { getPlaylist } from '../../../redux/genreReducer';
 import Preloader from '../../Preloader/Preloader';
 import { Playlist } from './Playlist';
-import { setPlaylistInfo } from '../../../redux/categoryReducer';
+import { setArtistsId } from '../../../redux/artistsReducer';
+import { setPlaylistInfo } from '../../../redux/albumsReducer';
 
 class PlaylistGenre extends React.Component {
   componentDidMount() {
@@ -17,13 +18,13 @@ class PlaylistGenre extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    playlist: state.contentPage.playlist,
-    playlistId: state.contentPage.genreItem.id,
-    cover: state.contentPage.genreItem.images[0].url,
-    playlistName: state.contentPage.genreItem.name,
-    playlistDesc: state.contentPage.genreItem.description,
-    isLoading: state.contentPage.isLoading,
+    playlist: state.genrePage.playlist,
+    playlistId: state.genrePage.genreItem.id,
+    cover: state.genrePage.genreItem.images[0].url,
+    playlistName: state.genrePage.genreItem.name,
+    playlistDesc: state.genrePage.genreItem.description,
+    isLoading: state.genrePage.isLoading,
   };
 };
 
-export default connect(mapStateToProps, { getPlaylist, setPlaylistInfo })(PlaylistGenre);
+export default connect(mapStateToProps, { getPlaylist, setPlaylistInfo, setArtistsId })(PlaylistGenre);

@@ -1,10 +1,18 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
+import { albumsReducer } from './albumsReducer';
 import { categoryReducer } from './categoryReducer';
+import { genreReducer } from './genreReducer';
+import { homeReducer } from './homeReducer';
+import { artistsReducer } from './artistsReducer';
 
 let reducers = combineReducers({
-  contentPage: categoryReducer,
+  categorytPage: categoryReducer,
+  homePage: homeReducer,
+  genrePage: genreReducer,
+  albumsPage: albumsReducer,
+  artistsPage: artistsReducer,
 });
 
 const loadState = () => {

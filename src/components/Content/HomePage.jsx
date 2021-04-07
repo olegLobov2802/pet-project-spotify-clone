@@ -1,7 +1,9 @@
 import React from 'react';
 import { NewReleases } from './NewReleases';
 import { connect } from 'react-redux';
-import { getPlaylistNewReleas, setGenreItem, getGenre, setPlaylistInfo } from '../../redux/categoryReducer';
+import { setPlaylistInfo } from '../../redux/albumsReducer';
+import { setGenreItem, getGenre } from '../../redux/genreReducer';
+import { getPlaylistNewReleas } from '../../redux/homeReducer';
 import Preloader from '../Preloader/Preloader';
 import { Genre } from './Genre/Genre';
 
@@ -34,9 +36,9 @@ class HomePage extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    playlistNewReleases: state.contentPage.playlistNewReleases,
-    isLoading: state.contentPage.isLoading,
-    genre: state.contentPage.genre,
+    playlistNewReleases: state.homePage.playlistNewReleases,
+    isLoading: state.homePage.isLoading,
+    genre: state.genrePage.genre,
   };
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getGenre, setGenreItem } from '../../../redux/categoryReducer';
+import { getGenre, setGenreItem } from '../../../redux/genreReducer';
 import Preloader from '../../Preloader/Preloader';
 import { Genre } from './Genre';
 
@@ -24,9 +24,9 @@ class GenreContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    genre: state.contentPage.genre,
-    genreId: state.contentPage.genreId,
-    isLoading: state.contentPage.isLoading,
+    genre: state.genrePage.genre,
+    genreId: state.genrePage.genreId,
+    isLoading: state.genrePage.isLoading,
   };
 };
 

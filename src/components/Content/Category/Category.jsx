@@ -23,4 +23,3 @@ export const Category = (props) => {
     </div>
   );
 };
-

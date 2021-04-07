@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getCategory, setGenreId } from '../../../redux/categoryReducer';
+import { setGenreId } from '../../../redux/genreReducer';
+import { getCategory } from '../../../redux/categoryReducer';
 import Preloader from '../../Preloader/Preloader';
 import { Category } from './Category';
 
@@ -24,8 +25,8 @@ class CategoryContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    category: state.contentPage.category,
-    isLoading: state.contentPage.isLoading,
+    category: state.categorytPage.category,
+    isLoading: state.categorytPage.isLoading,
   };
 };
 

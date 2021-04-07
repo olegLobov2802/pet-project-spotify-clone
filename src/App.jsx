@@ -8,7 +8,7 @@ import CategoryContainer from './components/Content/Category/CategoryContainer';
 import GenreContainer from './components/Content/Genre/GenreContainer';
 import PlaylistGenre from './components/Content/Genre/PlaylistGenre';
 import PlaylistAlbums from './components/Content/Albums/PlaylistAlbums';
-import { Artist } from './components/Content/Artist/Artist';
+import ArtistContainer from './components/Content/Artist/ArtistContainer';
 
 export const App = () => {
   return (
@@ -23,7 +23,7 @@ export const App = () => {
               <Route path='/genre' render={() => <GenreContainer />} />
               <Route path='/playlist' render={() => <PlaylistGenre />} />
               <Route path='/album' render={() => <PlaylistAlbums />} />
-              <Route path='/artist' render={() => <Artist />} />
+              <Route path='/artist' render={() => <ArtistContainer />} />
               <Route path='/search' render={() => <Search />} />
             </Switch>
           </div>
