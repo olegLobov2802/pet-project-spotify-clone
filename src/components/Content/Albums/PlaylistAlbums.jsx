@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getAlbumsTrack } from '../../../redux/albumsReducer';
+import { setArtistsId } from '../../../redux/artistsReducer';
 import Preloader from '../../Preloader/Preloader';
 import { Playlist } from './Playlist';
 
@@ -25,4 +26,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { getAlbumsTrack })(PlaylistAlbums);
+export default connect(mapStateToProps, { getAlbumsTrack, setArtistsId })(PlaylistAlbums);
