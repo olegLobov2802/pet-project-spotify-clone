@@ -27,10 +27,10 @@ export const Playlist = (props) => {
       </div>
 
       <div className='interlayer'>
-        <div className='name'># Название</div>
-        <div className='album'>Альбом</div>
-        <div className='data'>Дата Добавления</div>
-        <div className='time'>
+        <div className='interlayer__name'># Название</div>
+        <div className='interlayer__album'>Альбом</div>
+        <div className='interlayer__data'>Дата Добавления</div>
+        <div className='interlayer__time'>
           <AccessTimeIcon />
         </div>
       </div>
@@ -44,14 +44,30 @@ export const Playlist = (props) => {
               <div className='name'>{item.track.name}</div>
               <div className='artists'>
                 {item.track.artists.map((item, index) => (
-                  <span> {(index ? ', ' : '') + item.name}</span>
+                  <NavLink
+                    onClick={() => {
+                      props.setArtistsId(item.id);
+                    }}
+                    key={index}
+                    to='/artist'
+                    className='artists__item'>
+                    {' '}
+                    {(index ? ', ' : '') + item.name}
+                  </NavLink>
                 ))}
               </div>
             </div>
           </div>
 
           <NavLink
-            onClick={() => props.setPlaylistId(item.track.album.id)}
+            onClick={() =>
+              props.setPlaylistInfo(
+                item.track.album.id,
+                item.track.album.images[0].url,
+                item.track.album.name,
+                item.track.artists
+              )
+            }
             to='/album'
             className='track__album'>
             {item.track.album.name}

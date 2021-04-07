@@ -150,18 +150,17 @@ h5 {
   &__link {
     text-decoration: none;
     display: block;
+    width: 250px;
   }
 
   &__wrapper {
     padding: 10px;
     display: flex;
     flex-wrap: wrap;
-    //justify-content: center;
     margin: 0 auto;
   }
 
   &__item {
-    width: 200px;
     padding: 15px;
     background-color: #222;
     border-radius: 5px;
@@ -206,6 +205,32 @@ h5 {
   }
 }
 
+.interlayer {
+  color: #fff;
+  display: flex;
+  padding: 20px;
+  border-bottom: 2px solid #47383a;
+  color: #c29ba0;
+  align-items: center;
+
+  &__name {
+    flex-basis: 40%;
+    padding: 10px;
+  }
+  &__album {
+    flex-basis: 30%;
+    padding: 10px;
+  }
+  &__data {
+    flex-basis: 15%;
+    padding: 10px;
+  }
+  &__time {
+    margin-left: auto;
+    padding: 10px;
+  }
+}
+
 .playlist {
   &__head {
     display: flex;
@@ -229,41 +254,15 @@ h5 {
     padding: 20px;
 
     .title {
-      font-size: 70px;
+      font-size: 50px;
       font-weight: 800;
       color: #fff;
     }
 
     .subtitle {
       color: #fff;
-      font-size: 20px;
+      font-size: 16px;
       margin-top: 10px;
-    }
-  }
-
-  .interlayer {
-    color: #fff;
-    display: flex;
-    padding: 20px;
-    border-bottom: 2px solid #47383a;
-    color: #c29ba0;
-    align-items: center;
-
-    .name {
-      flex-basis: 40%;
-      padding: 10px;
-    }
-    .album {
-      flex-basis: 30%;
-      padding: 10px;
-    }
-    .data {
-      flex-basis: 15%;
-      padding: 10px;
-    }
-    .time {
-      margin-left: auto;
-      padding: 10px;
     }
   }
 
@@ -284,9 +283,6 @@ h5 {
       align-items: center;
       padding: 10px;
 
-      // .number {
-      // }
-
       .track__cover {
         padding: 0 15px;
       }
@@ -294,19 +290,19 @@ h5 {
       .name {
         color: #fff;
         font-size: 18px;
-        &:hover {
-          text-decoration: underline;
-          cursor: pointer;
-        }
       }
 
       .artists {
         margin-top: 4px;
         font-size: 16px;
         color: #d1a2a9;
-        span:hover {
-          text-decoration: underline;
-          cursor: pointer;
+
+        &__item {
+          color: #d1a2a9;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }
@@ -314,9 +310,9 @@ h5 {
       flex-basis: 30%;
       padding: 10px;
       color: #d1a2a9;
+      text-decoration: none;
       &:hover {
         text-decoration: underline;
-        cursor: pointer;
       }
     }
     &__data {
@@ -325,6 +321,57 @@ h5 {
     }
     &__time {
       flex-basis: 15%;
+      text-align: right;
+      padding: 10px;
+    }
+  }
+
+  .album {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    color: #d1a2a9;
+    align-items: center;
+
+    &:hover {
+      background-color: #333;
+    }
+
+    &__item {
+      flex-basis: 80%;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+
+      .number {
+        margin-right: 20px;
+      }
+
+      .track__cover {
+        padding: 0 15px;
+      }
+
+      .name {
+        color: #fff;
+        font-size: 18px;
+      }
+
+      .artists {
+        margin-top: 4px;
+
+        &__item {
+          font-size: 16px;
+          color: #d1a2a9;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    &__time {
+      flex-basis: 20%;
       text-align: right;
       padding: 10px;
     }

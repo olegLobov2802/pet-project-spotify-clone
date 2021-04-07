@@ -13,29 +13,37 @@ export const Playlist = (props) => {
           <img className='cover' src={props.cover} alt='#' />
         </div>
         <div className='playlist__description'>
-          <div className='title'>{props.playlistName}</div>
-          <div className='subtitle'>{props.playlistDesc}</div>
+          <div className='title'>{props.albumName}</div>
+          <div className='subtitle'>
+            {' '}
+            {props.artists.map((item, index) => (
+              <span key={index}> {(index ? ', ' : '') + item.name}</span>
+            ))}
+          </div>
         </div>
       </div>
 
       <div className='interlayer'>
-        <div className='name'># Название</div>
-        <div className='time'>
+        <div className='interlayer__name'># Название</div>
+        <div className='interlayer__time'>
           <AccessTimeIcon />
         </div>
       </div>
 
       {props.playlist.map((item, index) => (
-        <div className='track' key={item.id}>
-          <div className='track__item'>
+        <div className='album' key={item.id}>
+          <div className='album__item'>
             <div className='number'>{index + 1}</div>
             <div className='track__description'>
               <div className='name'>{item.name}</div>
-              {/* <div className='artists'>
+              <div className='artists'>
                 {item.artists.map((item, index) => (
-                  <span> {(index ? ', ' : '') + item.name}</span>
+                  <NavLink key={index} to='/artist' className='artists__item'>
+                    {' '}
+                    {(index ? ', ' : '') + item.name}
+                  </NavLink>
                 ))}
-              </div> */}
+              </div>
             </div>
           </div>
 

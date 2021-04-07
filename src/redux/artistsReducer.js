@@ -1,18 +1,19 @@
 import { contentListAPI } from '../api/api';
 
-const SET_CATEGORY = 'SET_CATEGORY';
 const IS_LOADING = 'IS_LOADING';
+const SET_ARTISTS_ID = 'SET_ARTISTS_ID';
 
 let initialState = {
-  category: [],
+  isLoading: false,
+  artistsId: null,
 };
 
-export let categoryReducer = (state = initialState, action) => {
+export let artistsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_CATEGORY:
+    case SET_ARTISTS_ID:
       return {
         ...state,
-        category: [...action.category],
+        artistsId: action.id,
       };
 
     case IS_LOADING:
@@ -26,21 +27,22 @@ export let categoryReducer = (state = initialState, action) => {
   }
 };
 
+export const setArtistsId = (id) => ({
+  type: SET_ARTISTS_ID,
+  id,
+});
+
 const checkIsLoading = (load) => ({
   type: IS_LOADING,
   load,
 });
 
-const setCategory = (category) => ({
-  type: SET_CATEGORY,
-  category,
-});
-
-export const getCategory = () => {
+export const getArtists = (id) => {
   return (dispatch) => {
     dispatch(checkIsLoading(true));
-    contentListAPI.getCategory().then((data) => {
-      dispatch(setCategory(data.categories.items));
+    contentListAPI.getArtists(id).then((data) => {
+      // dispatch(setPlaylistAlbum(items));
+      console.log(data);
       dispatch(checkIsLoading(false));
     });
   };

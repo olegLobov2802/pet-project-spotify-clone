@@ -1,7 +1,7 @@
-import React from 'react';
+// import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-export const NewReleases = ({ playlistNewReleases, setGenreItem }) => {
+export const NewReleases = ({ playlistNewReleases, setPlaylistInfo }) => {
   return (
     <div className='cover'>
       <h2 className='cover__title'>Новые релизы</h2>
@@ -10,7 +10,7 @@ export const NewReleases = ({ playlistNewReleases, setGenreItem }) => {
           <NavLink
             key={item.id}
             to='/album'
-            // onClick={() => setGenreItem(item)}
+            onClick={() => setPlaylistInfo(item.id, item.images[0].url, item.name, item.artists)}
             className='cover__link'>
             <div className='cover__item' key={index}>
               <div className='cover__img'>
