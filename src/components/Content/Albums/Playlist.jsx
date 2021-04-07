@@ -38,7 +38,13 @@ export const Playlist = (props) => {
               <div className='name'>{item.name}</div>
               <div className='artists'>
                 {item.artists.map((item, index) => (
-                  <NavLink key={index} to='/artist' className='artists__item'>
+                  <NavLink
+                    onClick={() => {
+                      props.setArtistsId(item.id);
+                    }}
+                    key={index}
+                    to='/artist'
+                    className='artists__item'>
                     {' '}
                     {(index ? ', ' : '') + item.name}
                   </NavLink>
