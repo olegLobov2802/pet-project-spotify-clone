@@ -6,7 +6,7 @@ import { Search } from './components/Search/Search';
 import HomePage from './components/Content/HomePage';
 import CategoryContainer from './components/Content/Category/CategoryContainer';
 import GenreContainer from './components/Content/Genre/GenreContainer';
-import PlaylistGenre from './components/Content/Genre/PlaylistGenre';
+import PlaylistGenre from './components/Content/Genre/PlaylistGenreContainer';
 import PlaylistAlbums from './components/Content/Albums/PlaylistAlbums';
 import ArtistContainer from './components/Content/Artist/ArtistContainer';
 
