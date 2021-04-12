@@ -1,7 +1,12 @@
-// import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { Pagination } from '../Pagination/Pagination';
 
-export const NewReleases = ({ playlistNewReleases, setPlaylistInfo }) => {
+export const NewReleases = ({
+  playlistNewReleases,
+  setPlaylistInfo,
+  pagination,
+  setCurrentPage,
+}) => {
   return (
     <div className='cover'>
       <h2 className='cover__title'>Новые релизы</h2>
@@ -22,6 +27,12 @@ export const NewReleases = ({ playlistNewReleases, setPlaylistInfo }) => {
           </NavLink>
         ))}
       </div>
+      <Pagination
+        offset={pagination.offset}
+        limit={pagination.limit}
+        total={pagination.total}
+        setCurrentPage={setCurrentPage}
+      />
     </div>
   );
 };

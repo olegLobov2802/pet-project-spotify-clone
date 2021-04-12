@@ -22,7 +22,7 @@ const mapStateToProps = (state) => {
     cover: state.albumsPage.playlistAlbumImg,
     albumName: state.albumsPage.albumName,
     artists: state.albumsPage.albumArtists,
-    isLoading: state.albumsPage.isLoading
+    isLoading: state.albumsPage.isLoading,
   };
 };
 
