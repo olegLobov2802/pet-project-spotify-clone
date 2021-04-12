@@ -13,6 +13,7 @@ let initialState = {
     offset: 1,
     total: null,
   },
+  isLoading: false,
 };
 
 export let homeReducer = (state = initialState, action) => {
@@ -33,6 +34,12 @@ export let homeReducer = (state = initialState, action) => {
       return {
         ...state,
         pagination: { ...state.pagination, offset: action.offset },
+      };
+
+    case IS_LOADING:
+      return {
+        ...state,
+        isLoading: action.load,
       };
 
     default:

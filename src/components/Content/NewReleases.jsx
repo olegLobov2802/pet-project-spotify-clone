@@ -1,5 +1,5 @@
-// import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { Pagination } from '../Pagination/Pagination';
 
 export const NewReleases = ({
   playlistNewReleases,
@@ -7,17 +7,6 @@ export const NewReleases = ({
   pagination,
   setCurrentPage,
 }) => {
-  let pagesCount = Math.ceil(pagination.total / pagination.limit);
-  let pages = [];
-  for (let i = 1; i <= pagesCount; i++) {
-    pages.push(i);
-  }
-
-  const currentPages = (page) => {
-    let pages = pagination.limit * page + 1;
-    setCurrentPage(pages);
-  };
-
   return (
     <div className='cover'>
       <h2 className='cover__title'>Новые релизы</h2>
@@ -38,17 +27,12 @@ export const NewReleases = ({
           </NavLink>
         ))}
       </div>
-      <div className='pagination'>
-        {/* <span className='pagination__item active'>1</span> */}
-        {pages.map((item) => (
-          <span
-            onClick={() => currentPages(item - 1)}
-            key={item}
-            className='pagination__item active'>
-            {item}
-          </span>
-        ))}
-      </div>
+      <Pagination
+        offset={pagination.offset}
+        limit={pagination.limit}
+        total={pagination.total}
+        setCurrentPage={setCurrentPage}
+      />
     </div>
   );
 };

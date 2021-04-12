@@ -36,7 +36,10 @@ class HomePage extends React.Component {
             />
 
             <h2 style={{ color: '#fff', textAlign: 'center', marginTop: '25px' }}>Top List</h2>
-            <Genre genre={this.props.genre} setGenreItem={this.props.setGenreItem} />
+            <Genre
+              genre={this.props.genre}
+              setGenreItem={this.props.setGenreItem}
+            />
           </>
         )}
       </>
