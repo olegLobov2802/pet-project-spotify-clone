@@ -75,7 +75,6 @@ export const getAlbumsTrack = (id) => {
 //   return (dispatch) => {
 //     dispatch(checkIsLoading(true));
 //     contentListAPI.getAlbums(id).then((response) => {
-//       console.log(response);
 //       dispatch(checkIsLoading(false));
 //     });
 //   };

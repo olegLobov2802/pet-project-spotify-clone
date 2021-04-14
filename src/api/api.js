@@ -43,7 +43,6 @@ export const contentListAPI = {
       return instance(`browse/new-releases?limit=6&offset=${offset}`, {
         headers: { Authorization: 'Bearer ' + access_token },
       }).then((response) => {
-        console.log(response.data);
         return response.data.albums;
       });
     });

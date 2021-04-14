@@ -14,7 +14,6 @@ class HomePage extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log(prevProps);
     if (prevProps.pagination.offset !== this.props.pagination.offset) {
       this.props.getPlaylistNewReleas(this.props.pagination.offset);
     }
