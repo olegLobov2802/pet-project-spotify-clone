@@ -1,3 +1,5 @@
+url github pages https://oleglobov2802.github.io/pet-project-spotify-clone/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
