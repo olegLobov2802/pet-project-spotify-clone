@@ -38,12 +38,13 @@ export const contentListAPI = {
     });
   },
 
-  getPlaylistNewReleas() {
+  getPlaylistNewReleas(offset) {
     return getToken().then((access_token) => {
-      return instance(`browse/new-releases?limit=5&offset=2`, {
+      return instance(`browse/new-releases?limit=6&offset=${offset}`, {
         headers: { Authorization: 'Bearer ' + access_token },
       }).then((response) => {
-        return response.data.albums.items;
+        console.log(response.data);
+        return response.data.albums;
       });
     });
   },
@@ -88,6 +89,36 @@ export const contentListAPI = {
   getArtists(id) {
     return getToken().then((access_token) => {
       return instance(`artists/${id}`, {
+        headers: { Authorization: 'Bearer ' + access_token },
+      }).then((response) => {
+        return response.data;
+      });
+    });
+  },
+
+  getTopTrackArtists(id) {
+    return getToken().then((access_token) => {
+      return instance(`artists/${id}/top-tracks?market=ES`, {
+        headers: { Authorization: 'Bearer ' + access_token },
+      }).then((response) => {
+        return response.data.tracks;
+      });
+    });
+  },
+
+  getAlbumArtists(id) {
+    return getToken().then((access_token) => {
+      return instance(`artists/${id}/albums`, {
+        headers: { Authorization: 'Bearer ' + access_token },
+      }).then((response) => {
+        return response.data;
+      });
+    });
+  },
+
+  getSimilarArtists(id) {
+    return getToken().then((access_token) => {
+      return instance(`artists/${id}/related-artists`, {
         headers: { Authorization: 'Bearer ' + access_token },
       }).then((response) => {
         return response.data;
