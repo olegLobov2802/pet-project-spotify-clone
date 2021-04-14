@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/pet-project-spotify-clone/static/css/main.bb1ab460.chunk.css",
-    "main.js": "/pet-project-spotify-clone/static/js/main.648f27ce.chunk.js",
-    "main.js.map": "/pet-project-spotify-clone/static/js/main.648f27ce.chunk.js.map",
+    "main.js": "/pet-project-spotify-clone/static/js/main.1de53e8e.chunk.js",
+    "main.js.map": "/pet-project-spotify-clone/static/js/main.1de53e8e.chunk.js.map",
     "runtime-main.js": "/pet-project-spotify-clone/static/js/runtime-main.81877132.js",
     "runtime-main.js.map": "/pet-project-spotify-clone/static/js/runtime-main.81877132.js.map",
     "static/js/2.87739d17.chunk.js": "/pet-project-spotify-clone/static/js/2.87739d17.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.81877132.js",
     "static/js/2.87739d17.chunk.js",
     "static/css/main.bb1ab460.chunk.css",
-    "static/js/main.648f27ce.chunk.js"
+    "static/js/main.1de53e8e.chunk.js"
   ]
 }
