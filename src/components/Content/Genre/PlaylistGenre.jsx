@@ -49,7 +49,7 @@ export const PlaylistGenre = (props) => {
                       props.setArtistsId(item.id);
                     }}
                     key={index}
-                    to='/artist'
+                    to='/pet-project-spotify-clone/artist'
                     className='artists__item'>
                     {' '}
                     {(index ? ', ' : '') + item.name}
@@ -68,7 +68,7 @@ export const PlaylistGenre = (props) => {
                 item.track.artists
               )
             }
-            to='/album'
+            to='/pet-project-spotify-clone/album'
             className='track__album'>
             {item.track.album.name}
           </NavLink>

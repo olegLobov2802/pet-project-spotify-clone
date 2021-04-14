@@ -14,7 +14,7 @@ export const NewReleases = ({
         {playlistNewReleases.map((item, index) => (
           <NavLink
             key={item.id}
-            to='/album'
+            to='/pet-project-spotify-clone/album'
             onClick={() => setPlaylistInfo(item.id, item.images[0].url, item.name, item.artists)}
             className='cover__link'>
             <div className='cover__item' key={index}>

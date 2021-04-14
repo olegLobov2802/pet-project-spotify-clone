@@ -18,13 +18,13 @@ export const App = () => {
         <div className='content'>
           <div className='content__wrapper'>
             <Switch>
-              <Route exact path='/' render={() => <HomePage />} />
-              <Route path='/Category' render={() => <CategoryContainer />} />
-              <Route path='/genre' render={() => <GenreContainer />} />
-              <Route path='/playlist' render={() => <PlaylistGenre />} />
-              <Route path='/album' render={() => <PlaylistAlbums />} />
-              <Route path='/artist' render={() => <ArtistContainer />} />
-              <Route path='/search' render={() => <Search />} />
+              <Route exact path='/pet-project-spotify-clone/' render={() => <HomePage />} />
+              <Route path='/pet-project-spotify-clone/Category' render={() => <CategoryContainer />} />
+              <Route path='/pet-project-spotify-clone/genre' render={() => <GenreContainer />} />
+              <Route path='/pet-project-spotify-clone/playlist' render={() => <PlaylistGenre />} />
+              <Route path='/pet-project-spotify-clone/album' render={() => <PlaylistAlbums />} />
+              <Route path='/pet-project-spotify-clone/artist' render={() => <ArtistContainer />} />
+              <Route path='/pet-project-spotify-clone/search' render={() => <Search />} />
             </Switch>
           </div>
         </div>

@@ -43,7 +43,7 @@ export const Artist = (props) => {
                       props.setArtistsId(item.id);
                     }}
                     key={index}
-                    to='/artist'
+                    to='/pet-project-spotify-clone/artist'
                     className='artists__item'>
                     {' '}
                     {(index ? ', ' : '') + item.name}
@@ -63,7 +63,7 @@ export const Artist = (props) => {
           {props.albums.map((item, index) => (
             <NavLink
               key={item.id}
-              to='/album'
+              to='/pet-project-spotify-clone/album'
               onClick={() =>
                 props.setPlaylistInfo(item.id, item.images[0].url, item.name, item.artists)
               }
@@ -89,7 +89,7 @@ export const Artist = (props) => {
               onClick={() => {
                 props.setArtistsId(item.id);
               }}
-              to='/artist'
+              to='/pet-project-spotify-clone/artist'
               className='similar_artists__link'>
               <div className='similar_artists__item' key={index}>
                 <div className='similar_artists__img'>

@@ -16,15 +16,22 @@ export const Navbar = () => {
         </div>
         <nav className='menu'>
           <div className='menu__list'>
-            <NavLink to={'/'} exact activeClassName='active' className='menu__item'>
+            <NavLink
+              to={'/pet-project-spotify-clone/'}
+              // exact
+              activeClassName='active'
+              className='menu__item'>
               <HomeIcon style={{ color: '#fff' }} className='menu__icon' />
               <div className='menu__link'>Главная</div>
             </NavLink>
-            <NavLink to={'/Category'} activeClassName='active' className='menu__item'>
+            <NavLink
+              to={'/pet-project-spotify-clone/Category'}
+              activeClassName='active'
+              className='menu__item'>
               <PlaylistPlayIcon style={{ color: '#fff' }} className='menu__icon' />
               <div className='menu__link'>Категории</div>
             </NavLink>
-            <NavLink to={'/search'} activeClassName='active' className='menu__item'>
+            <NavLink to={'/pet-project-spotify-clone/search'} activeClassName='active' className='menu__item'>
               <SearchIcon style={{ color: '#fff' }} className='menu__icon' />
               <div className='menu__link'>Поиск</div>
             </NavLink>

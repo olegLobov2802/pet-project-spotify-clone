@@ -43,7 +43,7 @@ export const Playlist = (props) => {
                       props.setArtistsId(item.id);
                     }}
                     key={index}
-                    to='/artist'
+                    to='/pet-project-spotify-clone/artist'
                     className='artists__item'>
                     {' '}
                     {(index ? ', ' : '') + item.name}

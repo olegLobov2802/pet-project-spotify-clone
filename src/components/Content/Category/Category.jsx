@@ -8,7 +8,7 @@ export const Category = (props) => {
         {props.category.map((item) => (
           <NavLink
             key={item.id}
-            to={'/genre'}
+            to={'/pet-project-spotify-clone/genre'}
             onClick={() => props.setGenreId(item.id)}
             className='cover__link'>
             <div className='cover__item'>
